@@ -17,7 +17,7 @@ const Form = () => {
 
     //add  instructions dynamically
     for (let i = 1; i <= numInstructions; i++) {
-      if (i != numInstructions) {
+      if (i !== numInstructions) {
         formData.instructions +=
           `Step ${i}) ` + document.getElementById(`step-${i}`).value + ", ";
       } else {
@@ -32,7 +32,7 @@ const Form = () => {
 
     console.log("Data:", formData);
 
-    //POST request to my Express server
+    //POST request to my exxpress server
     try {
       const response = await fetch("http://localhost:3001/recipes", {
         method: "POST",
@@ -44,6 +44,17 @@ const Form = () => {
 
       if (response.ok) {
         console.log("Recipe submitted successfully!");
+        //reset fields
+        document.getElementById("category").value = "";
+        document.getElementById("title").value = "";
+        document.getElementById("message").value = "";
+        document.getElementById("instruction-input").value = "";
+        document.getElementById("ingredients").value = "";
+        document.getElementById("prep-time").value = "";
+        document.getElementById("cook-time").value = "";
+        document.getElementById("servings").value = "";
+        //reset instructions
+        setNumInstructions(0);
       } else {
         console.error("Error submitting recipe:", response.statusText);
       }
@@ -116,6 +127,7 @@ const Form = () => {
             <button
               type="button"
               id="enter-btn"
+              className="form-buttons"
               onClick={() =>
                 setNumInstructions(
                   Number(document.getElementById("instruction-input").value)
@@ -151,7 +163,9 @@ const Form = () => {
             />
           </li>
           <li>
-            <button type="submit">Submit</button>
+            <button className="form-buttons" type="submit">
+              Submit
+            </button>
           </li>
         </ul>
       </form>

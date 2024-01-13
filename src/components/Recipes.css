@@ -1,10 +1,31 @@
-
 ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-  }
-  
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.recipes {
+  margin: 0;
+  font-family: "Old Standard", serif;
+  background-color: rgb(193, 158, 180);
+}
+
+.error-container {
+  font-family: "Old Standard", serif;
+  background-color: rgb(193, 158, 180);
+  height: 100vh; /* fills all background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorTitle {
+}

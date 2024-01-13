@@ -1,12 +1,11 @@
 import React from "react";
-import Recipe from "../components/Recipes";
 import Navbar from "../components/Navbar";
-
+import Category from "../components/Category";
 const Categories = () => {
   return (
     <div>
       <Navbar />
-      <Recipe />
+      <Category />
     </div>
   );
 };

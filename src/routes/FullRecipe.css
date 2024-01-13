@@ -1,0 +1,73 @@
+.details-header {
+  font-size: 45px;
+}
+
+.details-etc {
+  font-size: 18px;
+}
+
+.details-container {
+  display: flex;
+  font-family: "Old Standard", serif;
+  width: 100%;
+}
+
+.details-one {
+  flex: 1; /* remaining full space given */
+  padding: 2em;
+  color: black;
+  background: #e38854;
+  min-height: 800px;
+}
+
+.details-two {
+  border-left: 6px double white;
+  flex: 1;
+  color: black;
+  background-color: #ddd0bf;
+}
+
+/* mobile view changes*/
+@media screen and (max-width: 1000px) {
+  .details-container {
+    flex-direction: column;
+  }
+
+  .details-one,
+  .details-two {
+    width: 100%;
+  }
+
+  .details-two {
+    background: pink;
+  }
+}
+
+.time-container {
+  padding: 2em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin: auto;
+}
+
+.note-container {
+  top: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 60%; /* positions to the center of div */
+  margin: auto; /* positions to the center of div */
+}
+
+.note-item {
+  /* border-top-right-radius: 8px;
+  border-top-left-radius: 8px; */
+
+  /*top right bottom left */
+  padding: 2px 10px 0px 10px;
+
+  background-color: white;
+  border-bottom: 2px solid black;
+}

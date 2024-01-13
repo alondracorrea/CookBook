@@ -8,7 +8,7 @@ const cors = require("cors");
 const connectionParams = {
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "none",
+  password: process.env.DB_PASSWORD || "chubbyjoe6!",
   database: process.env.DB_NAME || "recipe_schema",
 };
 
@@ -31,7 +31,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/recipes", (req, res) => {
-  connection.query("SELECT * FROM recipes", (err, results) => {
+  const category = req.query.category;
+
+  //sql query to filter
+  let sql = "SELECT * FROM recipes";
+  let values = [];
+
+  if (category) {
+    sql = "SELECT * FROM recipes WHERE category = ?";
+    values = [category];
+  }
+
+  console.log("SQL Query:", sql);
+  console.log("SQL Values:", values);
+
+  connection.query(sql, values, (err, results) => {
     if (err) {
       console.error("Error fetching recipes from database:", err);
       res.status(500).send("Internal Server Error");
