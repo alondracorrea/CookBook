@@ -8,7 +8,7 @@ const cors = require("cors");
 const connectionParams = {
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "chubbyjoe6!",
+  password: process.env.DB_PASSWORD || "",
   database: process.env.DB_NAME || "recipe_schema",
 };
 
